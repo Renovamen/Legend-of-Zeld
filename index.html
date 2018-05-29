@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Legend of Zelda: Breath of the Wild</title>
+    <meta name="description" content="The Legend of Zelda: Breath of the Wild">    
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' id='styles-website-css' href="css/bootstrap.min.css" type='text/css' media='all' />
+    <link type="text/css" rel="stylesheet" href="css/background.css">
+    <link type="text/css" rel="stylesheet" href="css/world.css">
+</head>
+
+<!--引导栏-->
+<body class="home blog">
+    <nav id="zelda-main-menu" class="desktop">
+        <div class="navholder">
+            <ul>
+                <li id="menu-item-65266" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-65266"><a href="index.html">Home</a></li>
+                <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-17 scroll"><a href="#background">Background</a></li>
+                <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23 scroll"><a href="#merch">Characters</a></li>
+                <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22 scroll"><a href="#world">World</a></li>
+                <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21 scroll"><a href="#social-networks">Media</a></li>
+                <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20 scroll"><a href="#news-list">News</a></li>
+                <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19 scroll"><a href="#newsletter-subscribe">Contact</a></li>
+                <li id="menu-item-65846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65846 scroll"><a href="https://www.zelda.com/breath-of-the-wild/buy-now/">Buy Now</a></li>
+            </ul>
+            <img src="res/stroke-anim.png">
+        </div>
+        <a href="index.html" class="lillogo"></a>
+    </nav>
+    
+    <div id="ori-main-menu-mobile" class="mobile tablet">
+        <a href="index.html" class="logo-mobile"></a>
+        <span id="main-menu-open-btn" class="icon-menu"></span>
+    </div>
+    <div id="ori-main-menu-mobile-overlay"></div>
+
+    <nav id="ori-main-menu-mobile-flyout">
+        <div id="main-menu-close-container">
+            <span id="main-menu-close-btn" class="icon-close"></span>
+        </div>
+        <ul>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-65266"><a href="index.html">Home</a></li>
+            <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-17"><a href="#background">Background</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="#merch">Characters</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="#world">World</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="#social-networks">Media</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"><a href="#news-list">News</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19"><a href="#newsletter-subscribe">Contact</a></li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-65846"><a href="https://www.zelda.com/breath-of-the-wild/buy-now/">Buy Now</a></li>
+        </ul>
+        <div class="social-networks-follow">
+            <a target="_blank" href="https://twitter.com/ZeldaOfficialJP" class="icon-circle-twitter"></a>
+            <a target="_blank" href="https://www.facebook.com/LegendofZelda/" class="icon-circle-facebook"></a>
+        </div>
+    </nav>
+
+    <!--logo与开场视频-->
+    <section id="fp-hero-header" class="parallaxed scene-07 first-scene">
+        <div class="relative_container">
+            <div class="fullscreen background parallax" data-img-width="1920" data-img-height="1080" data-diff="100"></div>
+            <div class="floor"></div>
+            <div class="content content-a">
+                <div class="container-fluid content-b">
+                    <div class="row d-flex flex-row justify-content-center">
+                        <div class="hero-wrapper">
+                            <div id="hero-play-container">
+                                <div id="hero-logo"><img src="res/logo-zelda.png" /></div>
+                                <div id="hero-play-btn"></div>
+                            </div>
+                            <div id="hero-video" class="embed-responsive embed-responsive-21by9">
+                                <video class="embed-responsive-item" src="res/zelda.mp4" with="100%" height="100%" autoplay="autoplay" controls preload></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+            </div>
+        </div>
+        <div class="hook"></div>
+    </section>
+    
+    <!--隔断&背景-->
+    <div id="background" class="monial one polite text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-11 col-lg-12">
+                    <div class="relative_container">
+                            <div id="bg-bref"><img src="res/background/bg-bref.png" /></div>
+                            <div id="bg-title"><img src="res/background/bg-title.png" /></div>    
+                            <div id="bg-text"><img src="res/background/bg-text.png" /></div>
+                            <div id="bg-scroll"><img src="res/background/bg-scroll.png" /></div>        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--人物介绍-->
+    <section id="merch" class="parallaxed scene-05">
+        <div class="relative_container">
+            <div class="fullscreen background parallax" data-img-width="1920" data-img-height="1080" data-diff="400"></div>
+            <div class="ceiling"></div>
+            <div class="floor"></div>
+            
+            <div class="section-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 section-heading"><h1>Characters</h1></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pin_wrapper">
+                <div class="move_wrapper">
+                   
+    
+                    <div class="chara1 move_section" id="link">
+                        <div class="move_bg"></div>
+                        <div class="move_inner">
+                            <div class="img"><img src="res/background/bg_chara1.png" width="869" height="1095" ></div>
+                            <div class="textbox">
+                                <h2 class="name"><img src="res/background/bg_chara1_name.png" width="249" height="69" ></h2>
+                              <p class="text"><img src="res/background/bg_chara1_text.png" width="355" height="146" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chara2 move_section" id="zelda">
+                        <div class="move_bg"></div>
+                        <div class="move_inner">
+                            <div class="img"><img src="res/background/bg_chara2.png" width="983" height="1114" ></div>
+                            <div class="textbox">
+                                <h2 class="name"><img src="res/background/bg_chara2_name.png" width="289" height="70" ></h2>
+                                <p class="text"><img src="res/background/bg_chara2_text.png" width="396" height="146" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chara3 move_section" id="daruk">
+                        <div class="move_bg"></div>
+                        <div class="move_inner">
+                            <div class="img"><img src="res/background/bg_chara3.png" width="1174" height="930" ></div>
+                            <div class="textbox">
+                                <h2 class="name"><img src="res/background/bg_chara3_name.png" width="335" height="70" ></h2>
+                                <p class="text"><img src="res/background/bg_chara3_text.png" width="377" height="184" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chara4 move_section" id="revali">
+                        <div class="move_bg"></div>
+                        <div class="move_inner">
+                            <div class="img"><img src="res/background/bg_chara4.png" width="958" height="898" ></div>
+                            <div class="textbox">
+                                <h2 class="name"><img src="res/background/bg_chara4_name.png" width="328" height="68" ></h2>
+                                <p class="text"><img src="res/background/bg_chara4_text.png" width="426" height="108" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chara5 move_section" id="mipha">
+                        <div class="move_bg"></div>
+                        <div class="move_inner">
+                            <div class="img"><img src="res/background/bg_chara5.png" width="803" height="933" ></div>
+                            <div class="textbox">
+                                <h2 class="name"><img src="res/background/bg_chara5_name.png" width="310" height="69" ></h2>
+                                <p class="text"><img src="res/background/bg_chara5_text.png" width="446" height="108" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chara8 move_section" id="urbosa">
+                        <div class="move_bg"></div>
+                        <div class="move_inner">
+                            <div class="img"><img src="res/background/bg_chara8.png" width="1227" height="1030" ></div>
+                            <div class="textbox">
+                                <h2 class="name"><img src="res/background/bg_chara8_name.png" width="369" height="71" ></h2>
+                                <p class="text"><img src="res/background/bg_chara8_text.png" width="403" height="222" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chara7 move_section" id="bokoblin">
+                        <div class="move_bg"></div>
+                        <div class="move_inner">
+                            <div class="img"><img src="res/background/bg_chara7.png" width="748" height="531" ></div>
+                            <div class="textbox">
+                                <h2 class="name"><img src="res/background/bg_chara7_name.png" width="436" height="70" ></h2>
+                                <p class="text"><img src="res/background/bg_chara7_text.png" width="369" height="184" ></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chara6 move_section" id="guardian">
+                        <div class="move_bg"></div>
+                        <div class="move_inner">
+                            <div class="img"><img src="res/background/bg_chara6.png" width="1350" height="739" ></div>
+                            <div class="textbox">
+                                <h2 class="name"><img src="res/background/bg_chara6_name.png" width="328" height="72" ></h2>
+                                <p class="text"><img src="res/background/bg_chara6_text.png" width="330" height="146" ></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-footer"></div>
+        </div>
+        <div class="hook"></div>
+    </section>
+
+    
+    <!--隔断-->
+    <div class="monial three polite owotw">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-11 col-lg-12">
+                    <div class="relative_container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--玩法-->
+
+    <section id="world" class="parallaxed scene-04">
+        <div class="relative_container">
+            <div class="fullscreen background parallax" data-img-width="1920" data-img-height="1080" data-diff="400"></div>
+            <div class="ceiling"></div>
+            <div class="floor"></div>
+            <div class="section-header"></div>
+
+            <div id="wrapper">
+   
+                <section id="world_page">
+
+                    <div class="video_wrap">
+                        <div>&nbsp;</div>
+                    </div>
+        
+        
+                    <ul class="movie_title">
+                        <li><img src="res/world/movie_title_guard.png" width="406" height="236" ></li>
+                        <li><img src="res/world/movie_title_run.png" width="406" height="236" ></li>
+                        <li><img src="res/world/movie_title_live.png" width="406" height="236" ></li>
+                    </ul>
+                    <ul class="thumb_list_02">
+                        <li class="item_guard">
+                            <a href="#0" class="play_movie">
+                                <div class="thumb_img"><img src="res/world/thumb_02_img_guard.png" width="93" height="54" ></div>
+                                <div class="thumb_title"><img src="res/world/thumb_02_title_guard.png" width="93" height="27" ></div>
+                            </a>
+                        </li>
+                        <li class="item_run">
+                            <a href="#1" class="play_movie">
+                                <div class="thumb_img"><img src="res/world/thumb_02_img_run.png" width="93" height="54" ></div>
+                                <div class="thumb_title"><img src="res/world/thumb_02_title_run.png" width="60" height="27" ></div>
+                            </a>
+                        </li>
+                        <li class="item_live">
+                            <a href="#2" class="play_movie">
+                                <div class="thumb_img"><img src="res/world/thumb_02_img_live.png" width="93" height="54" ></div>
+                                <div class="thumb_title"><img src="res/world/thumb_02_title_live.png" width="57" height="27" ></div>
+                            </a>
+                        </li>
+                    </ul>
+        
+                </section>
+            </div>
+
+
+            
+            <div class="section-footer"></div>
+        </div>
+        <div class="hook"></div>
+    </section>
+
+
+    <!--隔断-->
+    <div class="monial two polite owotw">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-11 col-lg-12">
+                    <div class="relative_container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--分享-->
+    <section id="social-networks" class="parallaxed scene-04">
+        <div class="relative_container">
+            <div class="fullscreen background parallax" data-img-width="1920" data-img-height="1080" data-diff="400"></div>
+            <div class="ceiling"></div>
+            <div class="floor"></div>
+            <div class="section-header">
+            </div>
+            <div class="content content-a">
+                <div class="container content-b">
+                    <!--Twitter和Facebook分享-->
+                    <div class="row d-flex flex-row justify-content-center social-networks-list">
+                        <div class="col-5 col-lg-3 social-channel">
+                            <a target="_blank" href="https://twitter.com/ZeldaOfficialJP"><span class="icon-circle-twitter"></span> &#64;ZeldaOfficialJP</a>
+                        </div>
+
+                        <div class="col-5 col-lg-3 social-channel">
+                            <a target="_blank" href="https://www.facebook.com/LegendofZelda/"><span class="icon-circle-facebook"></span>&#64;LegendofZelda</a>
+                        </div>
+                    </div>
+
+                    <!--标题-->
+                    <div class="row d-flex flex-row justify-content-center social-networks-hashtag">
+                        <div class="col">
+                            <h1>&#35;The Legend of Zelda</h1>
+                        </div>
+                    </div>
+
+
+                    <div class="row d-flex flex-row justify-content-center align-items-stretch social-networks-posts">
+                        <div class="col-12 col-sm-12 col-lg-12">
+                            <div id="grid-social-networks-posts" data-columns>
+
+                                <!--一些社交评论-->
+                                <!--1-->
+                                <div class="social-network-post-container facebook">
+                                    <div class="social-network-post">
+                                        <div class="social-network-post-content">
+
+                                            <a href="https://www.facebook.com/LegendofZelda/">
+                                                <div class="social-network-poster-header">
+                                                    <div class="social-network-poster-image rounded-circle" 
+                                                         style="background-image: url(res/avatar-face.jpg);">
+                                                    </div>
+                                                    <div class="social-network-poster-info"> <span class="social-network-poster-user-name">The Legend of Zelda</span> <span class="social-network-poster-user-handle">&#64;LegendofZelda</span> </div>
+                                            </a>
+
+                                            <a class="bodylink" target="_blank" href="">
+                                                <p class="social-network-post-text">Defend Hyrule in style with newly added Legend of Zelda: Breath of the Wild themed outfits for Link and Zelda when Hyrule Warriors: Definitive Edition for Nintendo Switch arrives this Friday!</p> 
+                                                <span class="social-network-post-image" 
+                                                      style="background-image: url(res/social1.jpg);">                   <img src="res/blank-16x9.gif" />
+                                                </span> 
+                                            </a>
+
+                                            <div class="social-network-post-footer">
+                                                <div class="social-network-post-footer-content d-flex flex-row align-items-center align-items-stretch"> 
+                                                    <a href="">
+                                                        <span class="fa fa-facebook"></span>
+                                                    </a> 
+                                                    <span class="date-time-stamp">15 May 2018</span> 
+                                                    <span class="stat-count ml-auto">                            
+                                                        <span class="stat-data">100</span> 
+                                                        <a href="">
+                                                            <span class="stat-data-icon fa fa-share-square-o"></span>
+                                                        </a> 
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                         
+                                <!--1-->
+                                <div class="social-network-post-container twitter">
+                                    <div class="social-network-post">
+                                        <div class="social-network-post-content">
+                                            <a href="https://twitter.com/ZeldaOfficialJP">
+                                                <div class="social-network-poster-header">
+                                                    <div class="social-network-poster-image rounded-circle" 
+                                                         style="background-image: url(res/avatar-twitter.jpg);">
+                                                    </div>
+                                                    <div class="social-network-poster-info"> 
+                                                        <span class="social-network-poster-user-name">The Legend of Zelda</span> 
+                                                        <span class="social-network-poster-user-handle">&#64;ZeldaOfficialJP</span> 
+                                                    </div>
+                                            </a>
+
+                                            <a class="bodylink" target="_blank" href="https://twitter.com/ZeldaOfficialJP/status/988980358539456512">
+                                                <p class="social-network-post-text">「『ブレス オブ ザ ワイルド』オリジナルサウンドトラックCD」本日発売!BLOG記事を更新しました。</p> 
+                                                <span class="social-network-post-image" 
+                                                      style="background-image: url(res/social2.jpg);">                 
+                                                      <img src="res/blank-16x9.gif" />                
+                                                </span> 
+                                            </a>
+                                            
+                                            <div class="social-network-post-footer">
+                                                <div class="social-network-post-footer-content d-flex flex-row align-items-center align-items-stretch"> 
+                                                    <a href="https://twitter.com/ZeldaOfficialJP">
+                                                        <span class="fa fa-twitter"></span>
+                                                    </a> 
+                                                    <span class="date-time-stamp">25 Apr 2018</span> 
+                                                    <span class="stat-count ml-auto"> 
+                                                        <span class="stat-data">7.7k</span> 
+                                                        <a href="https://twitter.com/intent/favorite?tweet_id=988980358539456512">
+                                                            <span class="stat-data-icon icon-heart"></span>
+                                                        </a> 
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--3-->
+                                <div class="social-network-post-container twitter">
+                                    <div class="social-network-post">
+                                        <div class="social-network-post-content">
+                                            <a href="https://twitter.com/ZeldaOfficialJP">
+                                                <div class="social-network-poster-header">
+                                                    <div class="social-network-poster-image rounded-circle" 
+                                                         style="background-image: url(res/avatar-twitter.jpg);">
+                                                    </div>
+                                                    <div class="social-network-poster-info"> 
+                                                        <span class="social-network-poster-user-name">The Legend of Zelda</span> 
+                                                        <span class="social-network-poster-user-handle">&#64;LegendofZelda</span> 
+                                                    </div>
+                                            </a>
+
+                                            <a class="bodylink" target="_blank" href="https://twitter.com/ZeldaOfficialJP/status/951014789165203456">
+                                                <p class="social-network-post-text">『ブレス オブ ザ ワイルド』公式サイトの「冒険者の声」ページを更新しました。「冒険者の声」は引き続き募集しております。今後もお寄せいただいた声の一部を追加公開していきますので、ぜひチェックしてみてください。 </p> 
+                                                <span class="social-network-post-image" 
+                                                      style="background-image: url(res/social3.jpg);">
+                                                      <img src="res/blank-16x9.gif" />                
+                                                </span> 
+                                            </a>
+
+                                            <div class="social-network-post-footer">
+                                                <div class="social-network-post-footer-content d-flex flex-row align-items-center align-items-stretch"> 
+                                                    <a href="https://twitter.com/ZeldaOfficialJP">
+                                                        <span class="fa fa-twitter"></span>
+                                                    </a> 
+                                                    <span class="date-time-stamp">10 Jan 2018</span> 
+                                                    <span class="stat-count ml-auto">                            
+                                                        <span class="stat-data">2.8k</span> 
+                                                        <a href="https://twitter.com/intent/favorite?tweet_id=951014789165203456">
+                                                            <span class="stat-data-icon icon-heart"></span>
+                                                        </a> 
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+            </div>
+        </div>
+        <div class="hook"></div>
+    </section>
+
+    <div class="monial two polite owotw">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-11 col-lg-12">
+                    <div class="relative_container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <!--新闻-->
+    <section id="news-list" class="parallaxed scene-01">
+        <div class="relative_container">
+            <div class="fullscreen background parallax" data-img-width="1920" data-img-height="1080" data-diff="400"></div>
+            <div class="ceiling"></div>
+            <div class="floor"></div>
+            <div class="section-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 section-heading">
+                            <h1>Zelda News</h1>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 section-heading-btn">
+                            <a href="https://www.zelda.com/breath-of-the-wild/news/" class="zelda-btn-60"><span class="zelda-btn-text">More News</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content content-a">
+                <div class="container content-b">
+                    <div class="row">
+                        <!--3个新闻-->
+                        <div class="col-xs-12 col-lg-12 news-item">
+                            <div class="news-item-content-container d-flex flex-row align-items-start justify-content-between">
+                                <a class="news-item-image-16x9" 
+                                   style="background-image: url(res/news1.jpg);" 
+                                   href="https://www.zelda.com/breath-of-the-wild/news/the-champions-ballad-new-trailer">
+                                </a>
+                                <a class="news-item-background-container" 
+                                   href="https://www.zelda.com/breath-of-the-wild/news/the-champions-ballad-new-trailer" 
+                                   style="background-image: url(res/news1.jpg);">
+                                    <div class="news-item-content">
+                                        <h1>The Champions' Ballad is here!</h1>
+                                        <span class="publish-date-time">Apr 17, 2018</span>
+                                        <p>New adventures and challenges have come to the world of Hyrule. Players won't have to wait long for it – you can start playing today! The Champions' Ballad (DLC Pack 2) brings a large amount of exciting new content to the game. Here's what is being added....</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-12 news-item">
+                            <div class="news-item-content-container d-flex flex-row align-items-start justify-content-between">
+                                <a class="news-item-image-16x9" 
+                                   style="background-image: url(res/news2.jpg);" 
+                                   href="https://www.zelda.com/breath-of-the-wild/news/a-closer-look-at-champion-amiibo">       
+                                </a>
+                                <a class="news-item-background-container" 
+                                   href="https://www.zelda.com/breath-of-the-wild/news/a-closer-look-at-champion-amiibo" 
+                                   style="background-image: url(res/news2.jpg);">
+                                    <div class="news-item-content">
+                                        <h1>A closer look at the Champions amiibo</h1>
+                                        <span class="publish-date-time">Mar 21, 2018</span>
+                                        <p>Along his journey in The Legend of Zelda: Breath of the Wild, Link gains invaluable help from four Champions: Daruk, Mipha, Revali, and Urbosa. On November 10, these mighty heroes become available as amiibo figures. When tapped, these amiibo figures unlock special headgear, each helm inspired by that Champion's Divine Beast....</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-lg-12 news-item">
+                            <div class="news-item-content-container d-flex flex-row align-items-start justify-content-between">
+                                <a class="news-item-image-16x9" 
+                                   style="background-image: url(res/news3.jpg);" 
+                                   href="https://www.zelda.com/breath-of-the-wild/news/dlc-pack-one-available-now">       
+                                </a>
+                                <a class="news-item-background-container" 
+                                   href="https://www.zelda.com/breath-of-the-wild/news/dlc-pack-one-available-now" 
+                                   style="background-image: url(res/news3.jpg);">
+                                    <div class="news-item-content">
+                                        <h1>The Master Trials have arrived!</h1>
+                                        <span class="publish-date-time">Feb 14, 2018</span>
+                                        <p>Hello. I'm Tominaga, a game designer. I am also the director of The Legend of Zelda™: Breath of the Wild Expansion Pass.Finally, DLC Pack 1, The Master Trials has been released! This pack offers content that'll be enjoyable for those who are currently...</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 section-footer-btn">
+                            <a href="https://www.zelda.com/" class="zelda-btn-60"><span class="zelda-btn-text">More News</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hook"></div>
+    </section>
+
+
+
+    <div class="monial four polite owotw">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 col-sm-11 col-lg-12">
+                    <div class="relative_container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--联系我们-->
+    <section id="newsletter-subscribe" class="parallaxed scene-03">
+        <div class="relative_container">
+            <div class="fullscreen background parallax" data-img-width="1920" data-img-height="1080" data-diff="400"></div>
+            <div class="ceiling"></div>
+            <div class="subfloor"></div>
+            <div class="floor"></div>
+            <div class="section-header">
+            </div>
+            <div class="content content-a">
+                <div class="container content-b">
+                    <div class="row newsletter-subscribe">
+                        <div class="col-12 col-sm-6  push-sm-6">
+                            <div class="newsletter-subscribe-header">
+                                <h1>Stay in Touch</h1>
+                            </div>
+                            <div class="newsletter-subscribe-form-container">
+                                <div class="newsletter-subscribe-form-content">
+                                    <p>不管怎么说反正把名字邮箱留下来就对了，我们会来联系你的，哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈。 
+                                        <!--隐私声明-->
+                                        <a target="_blank" href="https://www.nintendo.com/privacy-policy">Privacy Policy</a>
+                                    </p>
+                                    <form id="subscribe-form">
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <input class="form-control" type="text" id="name" name="name" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <input class="form-control" type="email" id="email" name="email" placeholder="you@email.com">
+                                            </div>
+                                        </div>
+                                        <div class="button-container">
+                                            <button class="zelda-btn-60"><span class="zelda-btn-text">Contact Us Now</span></button>
+                                        </div>
+                                        <div class="newsletter-message success hide">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+            </div>
+        </div>
+        <div class="hook"></div>
+    </section>
+
+    
+
+    <div id="buy-zelda-now">
+        <a href="https://www.zelda.com/breath-of-the-wild/buy-now/"></a>
+    </div>
+
+    <section id="social-networks-follow">
+        <div class="container">
+            <div class="col">
+                <div class="content text-center">
+                    <h1>Play Zelda!</h1>
+                    <a target="_blank" href="https://twitter.com/ZeldaOfficialJP" class="icon-circle-twitter"></a>
+                    <a target="_blank" href="https://www.facebook.com/LegendofZelda/" class="icon-circle-facebook"></a>
+                    <a target="_blank" href="https://www.youtube.com/user/Nintendo" class="icon-circle-youtube"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--页脚-->
+    <footer>
+        <div class="container">
+            <!--仨图标-->
+            <div class="row justify-content-center logos">
+                <div class="col-sm-4 push-sm-4 logo-nintendo">
+                    <a target="_blank" href="https://www.nintendo.com/"></a>
+                </div>
+                <div class="col-sm-4 pull-sm-4 logo-tongji">
+                    <a target="_blank" href="http://sse.tongji.edu.cn/"></a>
+                </div>
+                <div class="col-sm-4 logo-switch">
+                    <a target="_blank" href="https://www.nintendo.com/switch/"></a>
+                </div>
+            </div>
+            <!--Copy Right-->
+            <div class="row justify-content-center copyright">
+                <div class="col">&copy;2018 ZOU XIAOHAN & YU JIALU ALL RIGHTS RESERVED</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="js/lib.js"></script>
+    <script type='text/javascript' src="js/main.js"></script>
+    <script type='text/javascript' src="js/bootstrap.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <script src="js/media.js"></script>
+    <script src="js/world.js"></script>
+
+</body>
+
+</html>

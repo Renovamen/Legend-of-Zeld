@@ -1,0 +1,229 @@
+@charset "UTF-8";
+
+
+
+/*------------------------------------------------------------
+  layout
+------------------------------------------------------------*/
+html{
+  overflow-y: scroll;
+}
+html,body {
+  height: 100%;
+}
+#wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 960px;
+  height: 100%;
+  min-height: 680px;
+  background-color: #000000;
+}
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#modal {
+  z-index: 9999;
+  background-color: transparent;
+}
+.video_wrap {
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 40px;
+}
+.video_wrap > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.video_wrap video,
+.video_wrap .ytvideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.video_wrap .ytvideo iframe {
+  width: 100%;
+  height: 100%;
+}
+.video_wrap > div:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.vjs-hidden {
+  display: none;
+}
+
+
+
+/*------------------------------------------------------------
+    gnav
+------------------------------------------------------------*/
+.gnav {
+    z-index: 11;
+}
+
+
+
+/*------------------------------------------------------------
+	world_page
+------------------------------------------------------------*/
+.world_page {
+  background-size: cover;
+}
+#world_page .video_wrap video,
+#world_page .video_wrap .ytvideo {
+  opacity: 0;
+}
+#world_page .video_wrap .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+#world_page .video_wrap .slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.movie_title {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 406px;
+  height: 236px;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.open_modal .movie_title {
+  opacity: 0;
+}
+.movie_title li {
+  position: absolute;
+  width: 406px;
+  height: 236px;
+  top: 0;
+  left: 0;
+  margin-left: 0;
+  margin-top: -117px;
+  opacity: 0;
+  display: none;
+}
+@media screen and (min-width: 1281px) {
+  .movie_title li {
+    margin-left: 158px;
+  }
+}
+.movie_title img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.thumb_list_02 {
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  margin-top: -145px;
+  width: 93px;
+  height: 290px;
+  z-index: 50;
+  opacity: 0;
+}
+.thumb_list_02 li {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+}
+.thumb_list_02 li .thumb_img {
+  position: absolute;
+  top: 27px;
+  width: 93px;
+  height: 54px;
+  box-shadow:0px 0px 30px 4px rgba(51,51,51,0.08);
+  -moz-box-shadow:0px 0px 30px 4px rgba(51,51,51,0.08);
+  -webkit-box-shadow:0px 0px 30px 4px rgba(51,51,51,0.08);
+}
+.thumb_list_02 li.current a:before{
+  content: "";
+  width: 97px;
+  height: 58px;
+  background-color: rgba(0,0,0,0.6);
+  display: inline-block;
+  position: absolute;
+  top: 25px;
+  left: -2px;
+}
+.thumb_list_02 li .thumb_title {
+  position: absolute;
+  top: 0;
+  width: 93px;
+  text-align: center;
+}
+
+.thumb_list_02 li .thumb_img img {
+  width: 100%;
+  height: auto;
+  transition: transform 1000ms ease;
+  -webkit-transition: -webkit-transform 1000ms ease;
+}
+.thumb_list_02 .item_guard {
+  top: 0;
+  left: 0;
+}
+.thumb_list_02 .item_guard .thumb_title {
+  top: -7px;
+}
+.thumb_list_02 .item_run {
+  top: 95px;
+  left: 0;
+}
+.thumb_list_02 .item_live {
+  top: 190px;
+  left: 0;
+}
+.thumb_list_02 li.item_new .thumb_title:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 26px;
+  height: 14px;
+  background: url(../img/common/icon_new.png) 0 0 no-repeat;
+}
+
+
+
+/*------------------------------------------------------------
+	hover
+------------------------------------------------------------*/
+.no-touchevents .thumb_list_02 li a {
+  transition: opacity 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.no-touchevents .thumb_list_02 li a:hover {
+  opacity: 0.7;
+}
+
+
