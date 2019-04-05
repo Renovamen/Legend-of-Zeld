@@ -4,6 +4,14 @@ A webpage of *Legend of Zelda: Breath of the Wild*.
 
 
 
+## Preview
+
+https://renovamen.github.io/Legend-of-Zeld/index.html
+
+
+
+## Screenshot
+
 ![img](screenshot/zelda-1.jpg)
 
 
