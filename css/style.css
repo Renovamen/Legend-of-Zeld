@@ -498,11 +498,11 @@ footer .container .row .logo-nintendo a:hover {
     opacity: 1
 }
 
-footer .container .row .logo-tongji {
+footer .container .row .logo-translate {
     text-align: center
 }
 
-footer .container .row .logo-tongji a {
+footer .container .row .logo-translate a {
     background-color: rgba(0, 255, 0, 0);
     display: inline-block;
     width: 100%;
@@ -518,7 +518,7 @@ footer .container .row .logo-tongji a {
 }
 
 @media (min-width:640px) {
-    footer .container .row .logo-tongji a {
+    footer .container .row .logo-translate a {
         width: 80%;
         height: calc(250px - 170px);
         margin: calc(170px / 2) 20% 50px 0;
@@ -526,7 +526,7 @@ footer .container .row .logo-tongji a {
     }
 }
 
-footer .container .row .logo-tongji a:hover {
+footer .container .row .logo-translate a:hover {
     opacity: 1
 }
 

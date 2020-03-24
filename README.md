@@ -2,13 +2,13 @@
 
 A webpage of *Legend of Zelda: Breath of the Wild*. Inspired by [Ori and the Blind Forest](https://www.orithegame.com/blind-forest/).
 
-
+&nbsp;
 
 ## Have a Look
 
 http://zelda.renovamen.ink
 
-
+&nbsp;
 
 ## Screenshots
 
