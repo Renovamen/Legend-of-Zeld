@@ -1,10 +1,6 @@
 @charset "UTF-8";
 
-
-
-/*------------------------------------------------------------
-    overwride
-------------------------------------------------------------*/
+/* ---------- overwride ---------- */
 html,
 body,
 #wrapper {
@@ -12,58 +8,7 @@ body,
 }
 
 
-
-/*------------------------------------------------------------
-    gnav
-------------------------------------------------------------*/
-.gnav {
-    position: fixed;
-    z-index: 10;
-}
-
-.local_nav{
-    position: fixed;
-    right: 30px;
-    top: 50%;
-    margin-top: -177px;
-     z-index: 400;
-}
-@media screen and (max-width: 1366px) {
-    .local_nav{
-        right: 10px;
-    }
-}
-.local_nav li{
-     margin: 10px 0;
-}
-.local_nav span{
-    display: block;
-    width: 33px;
-    height: 33px;
-    background-image: url(../img/background/bg_indicator.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.is-active-background .local_nav_background span,
-.is-active-link .local_nav_link span,
-.is-active-zelda .local_nav_zelda span,
-.is-active-daruk .local_nav_daruk span,
-.is-active-revali .local_nav_revali span,
-.is-active-mipha .local_nav_mipha span,
-.is-active-urbosa .local_nav_urbosa span,
-.is-active-guardian .local_nav_guardian span,
-.is-active-bokoblin .local_nav_bokoblin span{
-    background-image: url(../img/background/bg_indicator_ov.png);
-}
-
-
-/*------------------------------------------------------------
-    background_page
-------------------------------------------------------------*/
-.background_page {
-    height: 100%;
-}
+/* ---------- background_page ---------- */
 .background_bg {
     position: fixed;
     top: 0;
@@ -98,10 +43,7 @@ body,
 }
 
 
-
-/*------------------------------------------------------------
-    move_wrapper
-------------------------------------------------------------*/
+/* ---------- move_wrapper ---------- */
 .pin_wrapper {
     width: 100%;
     height: 100%;
@@ -159,10 +101,7 @@ body,
 }
 
 
-
-/*------------------------------------------------------------
-    main
-------------------------------------------------------------*/
+/* ---------- main ---------- */
 .main {
     top: 0;
     margin-top: 0;
@@ -191,18 +130,8 @@ body,
     margin-left: -65px;
 }
 
-.trigger-background01{
-    width: 100%;
-    height: 1px;
-    position: absolute;
-    bottom: 150px;
-}
 
-
-
-/*------------------------------------------------------------
-    chara1
-------------------------------------------------------------*/
+/* ---------- chara1 ---------- */
 .chara1 {
     z-index: 8;
 }
@@ -223,9 +152,7 @@ body,
 }
 
 
-/*------------------------------------------------------------
-    chara2
-------------------------------------------------------------*/
+/* ---------- chara2 ---------- */
 .chara2 {
     z-index: 7;
 }
@@ -246,10 +173,7 @@ body,
 }
 
 
-
-/*------------------------------------------------------------
-    chara3
-------------------------------------------------------------*/
+/* ---------- chara3 ---------- */
 .chara3 {
     z-index: 6;
 }
@@ -271,10 +195,7 @@ body,
 }
 
 
-
-/*------------------------------------------------------------
-    chara4
-------------------------------------------------------------*/
+/* ---------- chara4 ---------- */
 .chara4 {
     z-index: 5;
 }
@@ -296,10 +217,7 @@ body,
 }
 
 
-
-/*------------------------------------------------------------
-    chara5
-------------------------------------------------------------*/
+/* ---------- chara5 ---------- */
 .chara5 {
     z-index: 4;
 }
@@ -321,41 +239,29 @@ body,
 }
 
 
-
-/*------------------------------------------------------------
-    chara6
-------------------------------------------------------------*/
+/* ---------- chara6 ---------- */
 .chara6 {
-    z-index: 1;
+    z-index: 3;
 }
 .chara6,
 .chara6 .move_inner {
-    min-height: 800px;
+    min-height: 900px;
 }
 .chara6 .move_bg {
-    margin-top: -139px;
-    height: 278px;
+    margin-top: -170px;
+    height: 340px;
 }
 .chara6 .img {
-    margin: -456px 0 0 -1000px;
+    margin: -495px 0 0 -920px;
 }
 .chara6 .textbox {
-    left: 660px;
-    margin-top: -138px;
-}
-.chara6 .name {
-    left: 0;
-}
-.chara6 .text {
-    top: 101px;
+    left: 613px;
+    height: 296px;
+    margin-top: -165px;
 }
 
 
-
-
-/*------------------------------------------------------------
-    chara7
-------------------------------------------------------------*/
+/* ---------- chara7 ---------- */
 .chara7 {
     z-index: 2;
 }
@@ -376,41 +282,28 @@ body,
 }
 
 
-
-
-/*------------------------------------------------------------
-    chara8
-------------------------------------------------------------*/
+/* ---------- chara8 ---------- */
 .chara8 {
-    z-index: 3;
+    z-index: 1;
 }
 .chara8,
 .chara8 .move_inner {
-    min-height: 900px;
+    min-height: 800px;
 }
 .chara8 .move_bg {
-    margin-top: -170px;
-    height: 340px;
+    margin-top: -139px;
+    height: 278px;
 }
 .chara8 .img {
-    margin: -495px 0 0 -920px;
+    margin: -456px 0 0 -1000px;
 }
 .chara8 .textbox {
-    left: 613px;
-    height: 296px;
-    margin-top: -165px;
+    left: 660px;
+    margin-top: -138px;
 }
-
-
-
-/*------------------------------------------------------------
-	hover
-------------------------------------------------------------*/
-.no-touchevents .local_nav a span {
-    transition: opacity 0.3s linear;
+.chara6 .name {
+    left: 0;
 }
-.no-touchevents .local_nav a:hover span {
-    opacity: 0.5;
+.chara6 .text {
+    top: 101px;
 }
-
-

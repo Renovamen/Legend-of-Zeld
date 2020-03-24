@@ -1,109 +1,27 @@
 (function(global, factory) {
-
-	if ( typeof module === 'object' && typeof module.exports === 'object' ) {
+	
+	if (typeof module === 'object' && typeof module.exports === 'object') {
 		module.exports = factory(global, jQuery);
 
-	} else if (typeof define === 'function' && define.amd) {
+	} 
+	else if (typeof define === 'function' && define.amd) {
 		define(['jquery'], function(jQuery) {
 			return factory(global, jQuery);
 		});
-	} else {
+	} 
+	else {
 		global['Polaris'] = factory(global, global.jQuery);
 	}
 
 })((this || 0).self || global, function(global, $) {
 
-	var _ua = {},
-		_css = {},
-		_html = {},
-		_util = {},
-		_event = {},
-		_device = {},
-		_easing = {},
-		_htmlClasses = global.document ? document.documentElement.className.split(' ') : [];
-
-
-	/*----------------------------------------------------------------------------------------------------------------
-	 	随机数生成器
-	 -----------------------------------------------------------------------------------------------------------------*/
-
-	var Random = (function() {
-
-		var Rand = function(seed) {
-			this.seeds = [123456789, 362436069, 521288629, 88675123];
-
-			if (typeof seed !== 'number') {
-				seed = +new Date();
-			}
-
-			this.seeds[2] ^= seed;
-			this.seeds[2] ^= this.seeds[2] >> 21;
-			this.seeds[2] ^= this.seeds[2] << 35;
-			this.seeds[2] ^= this.seeds[2] >> 4;
-			this.seeds[2] *= 268582165;
-			this.get();
-			this.get();
-		};
-
-		Rand.prototype.get = function(min, max) {
-			var t = (this.seeds[0]^(this.seeds[0]<<11));
-			this.seeds[0] = this.seeds[1];
-			this.seeds[1] = this.seeds[2];
-			this.seeds[2] = this.seeds[3];
-				
-			var r = ( this.seeds[3]=(this.seeds[3]^(this.seeds[3]>>19))^(t^(t>>8)) );
-
-			if (arguments.length >= 2 && max > min) {
-				return min + r % (max-min+1);
-			} else {
-				return r;
-			}
-		};
-
-		return Rand;
-	})();
-
-
-
-	/*--------------------------------------------------------------------------------------------------------*/
+	var _css = {}, _util = {}, _easing = {},
 
 	_util = (function() {
 
-		// 外部随机数生成器
-		var _o_rand = null;
-
-		// 内部随机数生成器
-		var _i_rand = new Random();
-
-		// 唯一字符串
-		var _ustock = {};
-
-		// 画面宽
 		var _winW = 0;
-
-		// 画面高
 		var _winH = 0;
-
-		// 重型拉链函数
 		var _resizeListeners = null;
-
-		// 滚动拉链函数
-		var _scrollListeners = null;
-
-		// 轮锁函数
-		var _wheelListeners = null;
-
-		// 帧拉链函数
-		var _frameListeners = null;
-
-
-		var isObject = function(arg) {
-			return (Object.prototype.toString.call(arg) === '[object Object]');
-		};
-
-		var isArray = function(arg) {
-			return (Object.prototype.toString.call(arg) === '[object Array]');
-		};
 
 		var isFunction = function(arg) {
 			return (Object.prototype.toString.call(arg) === '[object Function]');
@@ -111,49 +29,6 @@
 
 		var isNumber = function(arg) {
 			return (Object.prototype.toString.call(arg) === '[object Number]');
-		};
-
-		var isBoolean = function(arg) {
-			return (Object.prototype.toString.call(arg) === '[object Boolean]');
-		};
-
-		var isString = function(arg) {
-			return (Object.prototype.toString.call(arg) === '[object String]');
-		};
-
-		var isNull = function(arg) {
-			return (arg === null);
-		};
-
-		var srand = function(seed) {
-			_o_rand = new Random(seed);
-		};
-
-		var rand = function(min, max) {
-			if (_o_rand === null) {
-				_o_rand = new Random();
-			}
-			return _o_rand.get(min, max);
-		};
-
-		var unique = function(len) {
-			var str = '';
-			var stack = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-
-			if (len && !isNaN(len)) {
-				len = parseInt(len);
-			} else {
-				len = 10;
-			}
-			for (var i=0; i<len; i++) {
-				str += stack.charAt(_i_rand.get(0, stack.length-1));
-			}
-			if (str in _ustock) {
-				return uniqueString(len+1);
-			} else {
-				_ustock[str] = 1;
-				return str;
-			}
 		};
 
 		var zeroPad = function(number, digit) {
@@ -166,12 +41,6 @@
 			}
 		};
 
-		var trim = function(str) {
-			if (isString(str)) {
-				return unescape(escape(str).replace(/^(%u3000|%20|%09)+|(%u3000|%20|%09)+$/g, ""));
-			}
-		};
-
 		var sequence = function(from , to) {
 			var seq = [];
 
@@ -179,47 +48,6 @@
 				seq.push(i);
 			}
 			return seq;
-		};
-
-		var visibleAreaRate = function(offsetTop, height, scrollTop, scrollBottom) {
-			var rate = (Math.min(scrollBottom, offsetTop+height) - Math.max(scrollTop, offsetTop)) / height;
-
-			return rate > 0 ? rate : 0;
-		};
-
-		var search = function(key, data) {
-			var keys = key.split('.')
-
-			var _search = function(keys, data) {
-				var ckey = keys.shift();
-
-				if (_util.isObject(data)) {
-					if (ckey in data) {
-						if (keys.length == 0) {
-							return data[ckey];
-						} else {
-							return _search(keys, data[ckey]);
-						}
-					} else {
-						return undefined;
-					}
-				} else if (_util.isArray(data)) {
-					if (isNaN(ckey)) {
-						return undefined;
-					} else {
-						ckey = parseInt(ckey);
-
-						if (keys.length == 0) {
-							return data[ckey];
-						} else {
-							return _search(keys, data[ckey]);
-						}
-					}
-				} else {
-					return undefined;
-				}
-			};
-			return _search(keys, data);
 		};
 
 		var getWindowSize = function() {
@@ -237,7 +65,6 @@
 		};
 
 		var onResize = function(listener, thisObject) {
-			var id = unique(10);
 
 			if (isFunction(listener)) {
 				var _this = thisObject !== undefined ? thisObject : global;
@@ -265,379 +92,20 @@
 						global.addEventListener('orientationchange', function() {
 							setTimeout(handler, 1000);
 						}, false);
-					} else {
+					} 
+					else {
 						global.attachEvent('onresize', handler);
 					}
 				}
-				_resizeListeners[id] = {callable:listener, thisObject:_this};
-
 				listener.call(_this, _winW, _winH);
 			}
-			return id;
 		};
-
-		var offResize = function(id) {
-			if (_resizeListeners !== null && isString(id) && id in _resizeListeners) {
-				delete _resizeListeners[id];
-			}
-		};
-
-		var onScroll = function(listener, thisObject) {
-			var id = unique(10);
-
-			if (isFunction(listener)) {
-				var _this = thisObject !== undefined ? thisObject : global;
-
-				if (_scrollListeners === null) {
-					_scrollListeners = {};
-
-					var handler = function() {
-						var size = getWindowSize();
-						var t = global.document.body.scrollTop || global.document.documentElement.scrollTop;
-						var l = global.document.body.scrollLeft || global.document.documentElement.scrollLeft;
-						var b = t + size.h;
-						var r = l + size.w;
-
-						for (var _id in _scrollListeners) {
-							_scrollListeners[_id].callable.call(_scrollListeners[_id].thisObject, t, b, l, r);
-						}
-					};
-
-					if (window.addEventListener) {
-						global.addEventListener('resize', handler, false);
-						global.addEventListener('scroll', handler, false);
-					} else {
-						global.attachEvent('onresize', handler);
-						global.attachEvent('onscroll', handler);
-					}
-					if (_device.hasTouch && _ua.ios) {
-						global.addEventListener('touchmove', handler, false);
-					}
-				}
-				_scrollListeners[id] = {callable:listener, thisObject:_this};
-
-				if (global.document.body) {
-					var t = global.document.body.scrollTop || global.document.documentElement.scrollTop;
-					var l = global.document.body.scrollLeft || global.document.documentElement.scrollLeft;
-					var b = t + _winH;
-					var r = l + _winW;
-					listener.call(_this, t, b, l, r);
-				}
-			}
-			return id;
-		};
-
-		var offScroll = function(id) {
-			if (_scrollListeners !== null && isString(id) && id in _scrollListeners) {
-				delete _scrollListeners[id];
-			}
-		};
-
-		var onWheel = function(element, listener, thisObject) {
-			var id = unique(10);
-
-			if (isFunction(listener)) {
-				var _this = thisObject !== undefined ? thisObject : global;
-
-				var wheelEvent = {
-					type : '',
-					wheelDeltaX : 0,
-					wheelDeltaY : 0,
-					returnValue : true,
-					originalEvent : null,
-
-					preventDefault : function(){
-						this.returnValue = false;
-					}
-				};
-
-				if (_wheelListeners === null) {
-					_wheelListeners = {};
-				}
-
-				_wheelListeners[id] = {target:element, callable:listener, thisObject:_this, off:null};
-
-				if (element.addEventListener) {
-					
-					if (_device.hasTouch) {
-						var timer = null;
-						var dx, dy, sx, sy;
-
-						var tick = function(e){
-							dx *= 0.9;
-							dy *= 0.9;
-
-							wheelEvent.returnValue = true;
-							wheelEvent.type = 'touchend';
-							wheelEvent.wheelDeltaX = dx;
-							wheelEvent.wheelDeltaY = dy;
-
-							for (var _id in _wheelListeners) {
-								if (element === _wheelListeners[id].target) {
-									_wheelListeners[id].callable.call(thisObject, wheelEvent);
-								}
-							}
-
-							if(Math.abs(dx) > 1 || Math.abs(dy) > 1){
-								timer = setTimeout(tick, 10);
-							}
-						};
-
-						var touchstart = function(e) {
-							clearTimeout(timer);
-							sx = e.touches[0].clientX;
-							sy = e.touches[0].clientY;
-						};
-
-						var touchmove = function(e) {
-							dx = e.touches[0].clientX - sx;
-							dy = e.touches[0].clientY - sy;
-							sx = e.touches[0].clientX;
-							sy = e.touches[0].clientY;
-
-							wheelEvent.returnValue = true;
-							wheelEvent.type = 'touchmove';
-							wheelEvent.wheelDeltaX = dx;
-							wheelEvent.wheelDeltaY = dy;
-							wheelEvent.originalEvent = e;
-
-							for (var _id in _wheelListeners) {
-								if (element === _wheelListeners[id].target) {
-									_wheelListeners[id].callable.call(thisObject, wheelEvent);
-								}
-							}
-
-							if (wheelEvent.returnValue === false) {
-								e.preventDefault();
-							}
-						};
-
-						_wheelListeners[id].off = function() {
-							element.removeEventListener('touchstart', touchstart);
-							element.removeEventListener('touchmove', touchmove);
-							element.removeEventListener('touchend', tick);
-							element.removeEventListener('touchcancel', tick);
-						};
-
-						element.addEventListener('touchstart', touchstart, false);
-						element.addEventListener('touchmove', touchmove, false);
-						element.addEventListener('touchend', tick, false);
-						element.addEventListener('touchcancel', tick, false);
-					} else {
-
-						var mousewheel = function(e) {
-							var dx = e.wheelDeltaX ? e.wheelDeltaX : 0;
-							var dy = e.wheelDeltaY ? e.wheelDeltaY : e.wheelDelta;
-
-							if(dy%40 == 0){
-								dy *= 0.8;
-							}else{
-								dy *= 0.15;
-							}
-							if(dx%40 == 0){
-								dx *= 0.8;
-							}else{
-								dx *= 0.15;
-							}
-
-							wheelEvent.returnValue = true;
-							wheelEvent.type = 'mousewheel';
-							wheelEvent.wheelDeltaX = dx;
-							wheelEvent.wheelDeltaY = dy;
-							wheelEvent.originalEvent = e;
-
-							for (var _id in _wheelListeners) {
-								if (element === _wheelListeners[id].target) {
-									_wheelListeners[id].callable.call(thisObject, wheelEvent);
-								}
-							}
-
-							if(wheelEvent.returnValue === false){
-								e.preventDefault();
-							}
-						};
-
-						var MozMousePixelScroll = function(e) {
-							var dx = 0;
-							var dy = 0;
-
-							if(e.axis === e.VERTICAL_AXIS){
-								dy = -e.detail*0.6;
-							}else if(e.axis === e.HORIZONTAL_AXIS){
-								dx = -e.detail*0.6;
-							}
-
-							wheelEvent.returnValue = true;
-							wheelEvent.type = 'mousewheel';
-							wheelEvent.wheelDeltaX = dx;
-							wheelEvent.wheelDeltaY = dy;
-							wheelEvent.originalEvent = e;
-
-							for (var _id in _wheelListeners) {
-								if (element === _wheelListeners[id].target) {
-									_wheelListeners[id].callable.call(thisObject, wheelEvent);
-								}
-							}
-
-							if(wheelEvent.returnValue === false){
-								e.preventDefault();
-							}
-						};
-
-						_wheelListeners[id].off = function() {
-							element.removeEventListener('mousewheel', mousewheel);
-							element.removeEventListener('MozMousePixelScroll', MozMousePixelScroll);
-						};
-
-						element.addEventListener('mousewheel', mousewheel, false);
-						element.addEventListener('MozMousePixelScroll', MozMousePixelScroll, false);
-					}
-				} else {
-					var onmousewheel = function(e) {
-						wheelEvent.returnValue = true;
-						wheelEvent.type = 'mousewheel';
-						wheelEvent.wheelDeltaX = 0;
-						wheelEvent.wheelDeltaY = e.wheelDelta*1.5;
-						wheelEvent.originalEvent = window.event;
-
-						for (var _id in _wheelListeners) {
-							if (element === _wheelListeners[id].target) {
-								_wheelListeners[id].callable.call(thisObject, wheelEvent);
-							}
-						}
-
-						if(wheelEvent.returnValue === false){
-							return false;
-						}
-					};
-
-					_wheelListeners[id].off = function() {
-						element.detachEvent('onmousewheel', onmousewheel)
-					};
-
-					element.attachEvent('onmousewheel', onmousewheel);
-				}
-			}
-			return id;
-		};
-
-		var offWheel = function(id) {
-			if (_wheelListeners !== null && isString(id) && id in _wheelListeners) {
-				_wheelListeners[id].off();
-				delete _wheelListeners[id];
-			}
-		};
-
-		var onFrame = function(listener, thisObject) {
-			var id = unique(10);
-
-			if (isFunction(listener)) {
-				var _this = thisObject !== undefined ? thisObject : global;
-
-				if (_frameListeners === null) {
-					_frameListeners = {};
-
-					var rf = global.requestAnimationFrame || global.webkitRequestAnimationFrame || global.msRequestAnimationFrame || global.mozRequestAnimationFrame || global.setTimeout;
-					var cf = global.cancelAnimationFrame || global.webkitCancelAnimationFrame || global.msCancelAnimationFrame || global.mozCancelAnimationFrame || global.clearTimeout;
-					var timer = null;
-					var interval = 1000/60;
-
-					var tick = function() {
-						var ct = +new Date();
-						var dt;
-						var pt;
-						var cnt = 0;
-
-						for (var _id in _frameListeners) {
-							dt = ct - _frameListeners[_id].t1;
-							pt = ct - _frameListeners[_id].t0;
-
-							_frameListeners[_id].t1 = ct;
-
-							if (_frameListeners[_id].callable.call(_frameListeners[_id].thisObject, ct, dt, pt) === false) {
-								delete _frameListeners[_id];
-							}
-						}
-
-						for (var _id in _frameListeners) {
-							cnt++;
-						}
-
-						if (cnt === 0) {
-							cf(timer);
-							_frameListeners = null;
-						} else {
-							timer = rf(tick, interval);
-						}
-					};
-					timer = rf(tick, interval);
-				}
-				_frameListeners[id] = {
-					t0 : +new Date(),
-					t1 : +new Date(),
-					callable : listener,
-					thisObject : _this
-				};
-			}
-			return id;
-		};
-
-		var offFrame = function(id) {
-			if (_frameListeners !== null && isString(id) && id in _frameListeners) {
-				delete _frameListeners[id];
-			}
-		};
-
 
 		return {
-			// 类型判別
-			 isObject   : isObject
-			,isArray    : isArray
-			,isFunction : isFunction
-			,isNumber   : isNumber
-			,isBoolean  : isBoolean
-			,isString   : isString
-			,isNull     : isNull
-
-			// 随机数初始化
-			,srand : srand
-
-			// 获得随机数
-			,rand : rand
-
-			// 
-			,zeroPad : zeroPad
-
-			// 除去前后空白
-			,trim : trim
-
-			// 获得唯一字符串
-			,unique : unique
-
-			// 按顺序生成
-			,sequence : sequence
-
-			// 元素显示比例
-			,visibleAreaRate : visibleAreaRate
-
-			// 
-			,search : search
-
-			,onResize : onResize
-
-			,offResize : offResize
-
-			,onScroll : onScroll
-
-			,offScroll : offScroll
-
-			,onWheel : onWheel
-
-			,offWheel : offWheel
-
-			,onFrame : onFrame
-
-			,offFrame : offFrame
+			isNumber: isNumber,
+			zeroPad: zeroPad,
+			sequence: sequence,
+			onResize: onResize
 		};
 	})();
 
@@ -761,83 +229,13 @@
 		}
 	};
 
-	// jQuery扩展
+	// jQuery extend
 	if ($) {
 		$.extend($.easing, _easing);
 	}
 
-
-	/*---------------------------------------------------------------------------------------------------------------
-		Cookie
-	 ----------------------------------------------------------------------------------------------------------------*/
-
-	var _cookie = {
-
-		read : function(key, defaultValue) {
-			if (!!document.cookie) {
-				var sp = document.cookie.split(';');
-
-				for (var i=0; i<sp.length; i++) {
-					var pair = sp[i].split('=');
-
-					if (_util.trim(pair[0]) === key) {
-						var obj = JSON.parse(decodeURIComponent(_util.trim(pair[1])));
-
-						return obj._v;
-					}
-				}
-			}
-			return defaultValue;
-		},
-
-		write : function(key ,val, options) {
-			var path    = _util.isObject(options) && options.path    ? '; path=' + options.path : '';
-	        var domain  = _util.isObject(options) && options.domain  ? '; domain=' + options.domain : '';
-	       	var secure  = _util.isObject(options) && options.secure  ? '; secure' : '';
-			var expires = _util.isObject(options) && options.expires ? options.expires : '';
-
-			if(expires !== ''){
-				var date;
-
-				if (_util.isNumber(expires)) {
-					date = new Date();
-					date.setTime(date.getTime() + expires*1000);
-
-				} else if (expires.toUTCString ){
-					date = expires;
-
-				} else if (_util.isString(expires)) {
-					var msec = 0;
-
-					if (expires.match(/^([0-9]+)second(s)?$/)){
-						msec = (RegExp.$1-0)*1000;
-					} else if (expires.match(/^([0-9]+)minute(s)?$/)) {
-						msec = (RegExp.$1-0)*60*1000;
-					} else if (expires.match(/^([0-9]+)hour(s)?$/)) {
-						msec = (RegExp.$1-0)*60*60*1000;
-					} else if (expires.match(/^([0-9]+)day(s)?$/)) {
-						msec = (RegExp.$1-0)*24*60*60*1000;
-					} else if (expires.match(/^([0-9]+)week(s)?/)) {
-						msec = (RegExp.$1-0)*7*24*60*60*1000;
-					} else if (expires.match(/^([0-9]+)month(s)?$/)) {
-						msec = (RegExp.$1-0)*30*24*60*60*1000;
-					} else if (expires.match(/^([0-9]+)year(s)?$/)) {
-						msec = (RegExp.$1-0)*365*24*60*60*1000;
-					}
-					if (msec > 0) {
-						date = new Date();
-						date.setTime(date.getTime() + msec);
-					}
-				}
-				if (date) expires = '; expires=' + date.toUTCString();
-			}
-
-			document.cookie = key + '=' + encodeURIComponent(JSON.stringify({_v : val})) + path + domain + secure + expires;
-		}
-	};
-
 	
-	// jQuery扩展
+	// jQuery extend
 	if ($) {
 
 		jQuery.fn.extend({
@@ -946,14 +344,7 @@
 	}
 
 	return {
-		ua     : _ua,
 		css    : _css,
-		html   : _html,
-		util   : _util,
-		event  : _event,
-		device : _device,
-		cookie : _cookie,
-		easing : _easing
+		util   : _util
 	};
 });
-

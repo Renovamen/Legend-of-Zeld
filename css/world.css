@@ -1,14 +1,11 @@
 @charset "UTF-8";
 
+/* ---------- layout ---------- */
 
-
-/*------------------------------------------------------------
-  layout
-------------------------------------------------------------*/
 html{
   overflow-y: scroll;
 }
-html,body {
+html, body {
   height: 100%;
 }
 #wrapper {
@@ -69,19 +66,7 @@ html,body {
 }
 
 
-
-/*------------------------------------------------------------
-    gnav
-------------------------------------------------------------*/
-.gnav {
-    z-index: 11;
-}
-
-
-
-/*------------------------------------------------------------
-	world_page
-------------------------------------------------------------*/
+/* ---------- world_page ---------- */
 .world_page {
   background-size: cover;
 }
@@ -141,7 +126,7 @@ html,body {
   margin: auto;
 }
 
-.thumb_list_02 {
+.thumb_list {
   position: absolute;
   top: 50%;
   right: 32px;
@@ -151,12 +136,13 @@ html,body {
   z-index: 50;
   opacity: 0;
 }
-.thumb_list_02 li {
+.thumb_list li {
   position: absolute;
   width: 100%;
   height: 80px;
+  list-style: none;
 }
-.thumb_list_02 li .thumb_img {
+.thumb_list li .thumb_img {
   position: absolute;
   top: 27px;
   width: 93px;
@@ -165,45 +151,45 @@ html,body {
   -moz-box-shadow:0px 0px 30px 4px rgba(51,51,51,0.08);
   -webkit-box-shadow:0px 0px 30px 4px rgba(51,51,51,0.08);
 }
-.thumb_list_02 li.current a:before{
+.thumb_list li.current a:before{
   content: "";
   width: 97px;
   height: 58px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   display: inline-block;
   position: absolute;
   top: 25px;
   left: -2px;
 }
-.thumb_list_02 li .thumb_title {
+.thumb_list li .thumb_title {
   position: absolute;
   top: 0;
   width: 93px;
   text-align: center;
 }
 
-.thumb_list_02 li .thumb_img img {
+.thumb_list li .thumb_img img {
   width: 100%;
   height: auto;
   transition: transform 1000ms ease;
   -webkit-transition: -webkit-transform 1000ms ease;
 }
-.thumb_list_02 .item_guard {
+.thumb_list .item_guard {
   top: 0;
   left: 0;
 }
-.thumb_list_02 .item_guard .thumb_title {
+.thumb_list .item_guard .thumb_title {
   top: -7px;
 }
-.thumb_list_02 .item_run {
+.thumb_list .item_run {
   top: 95px;
   left: 0;
 }
-.thumb_list_02 .item_live {
+.thumb_list .item_live {
   top: 190px;
   left: 0;
 }
-.thumb_list_02 li.item_new .thumb_title:after {
+.thumb_list li.item_new .thumb_title:after {
   content: "";
   display: block;
   position: absolute;
@@ -215,15 +201,10 @@ html,body {
 }
 
 
-
-/*------------------------------------------------------------
-	hover
-------------------------------------------------------------*/
-.no-touchevents .thumb_list_02 li a {
+/* ---------- hover ---------- */
+.no-touchevents .thumb_list li a {
   transition: opacity 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-.no-touchevents .thumb_list_02 li a:hover {
+.no-touchevents .thumb_list li a:hover {
   opacity: 0.7;
 }
-
-

@@ -1,27 +1,21 @@
 # Legend of Zeld
 
-A webpage of *Legend of Zelda: Breath of the Wild*.
+A webpage of *Legend of Zelda: Breath of the Wild*. Inspired by [Ori and the Blind Forest](https://www.orithegame.com/blind-forest/).
 
 
 
-## Preview
+## Have a Look
 
-https://renovamen.github.io/Legend-of-Zeld/index.html
-
-
-
-## Screenshot
-
-![img](screenshot/zelda-1.jpg)
+http://zelda.renovamen.ink
 
 
 
-![img](screenshot/zelda-2.jpg)
+## Screenshots
 
+![img](docs/zelda-1.jpg)
 
+![img](docs/zelda-2.jpg)
 
-![img](screenshot/zelda-3.jpg)
+![img](docs/zelda-3.jpg)
 
-
-
-![img](screenshot/zelda-4.jpg)
+![img](docs/zelda-4.jpg)

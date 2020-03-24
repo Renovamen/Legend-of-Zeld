@@ -1,17 +1,16 @@
+// Videos list in section 'Word'
+
 (function() {
 
-	// 视频播放标志
-	var useVideo = !Polaris.ua.tablet && !Polaris.ua.mobile && !Polaris.ua.nwiiu;
 	var loader = new Loader();
-	
+
 	$(function() {
 
 		var movies   = [];
 		var current  = -1;
 		var animated = false;
-		var onmouse  = false;
 
-		// 背景动画
+		// Videos list
 		var movieParams = [{
 			// 守护
 			vid  : '',
@@ -32,100 +31,30 @@
 			next : 0
 		}];
 
-		// 背景幻灯片参数
-		var backSlideParams = [{
-			src : Polaris.util.sequence(1, 21).map(function(i) {
-				return 'assets/img/world/guard_' + Polaris.util.zeroPad(i,2) + '.jpg';
-			}),
-			container : '#world_page .video_wrap > div',
-			className : 'slide guard',
-			duration  : 2000,
-			interval  : 3*1000
-		}, {
-			src : Polaris.util.sequence(1, 21).map(function(i) {
-				return 'assets/img/world/run_' + Polaris.util.zeroPad(i,2) + '.jpg';
-			}),
-			container : '#world_page .video_wrap > div',
-			className : 'slide run',
-			duration  : 2000,
-			interval  : 3*1000
-		}, {
-			src : Polaris.util.sequence(1, 21).map(function(i) {
-				return 'assets/img/world/live_' + Polaris.util.zeroPad(i,2) + '.jpg';
-			}),
-			container : '#world_page .video_wrap > div',
-			className : 'slide live',
-			duration  : 2000,
-			interval  : 3*1000
-		}];
-
-
-		if (useVideo) {
-			// 电影排列
-			movies = movieParams.map(function(param) {
-
-				var movie = null;
-
-				
-					movie = new Movie(param.src, {
-						container : param.el,
-						center : {x:0.5, y:0.5},
-						volume : 80
-					});
-					movie.skipLoad();
-				
-
-				// 结束1000ms前到下一个视频
-				movie.beforeEnd(1000, function() {
-					changeMovie(param.next);
-				});
-
-				// 视频结束
-				movie.onEnded(function() {
-					movie.seek(0);
-				});
-
-				return movie;
+		movies = movieParams.map(function(param) {
+			var movie = null;
+			movie = new Movie(param.src, {
+				container : param.el,
+				center : {x:0.5, y:0.5},
+				volume : 80
 			});
-		} 
-
-		else {
-			movies = backSlideParams.map(function(param) {
-				var slide = new Slide(param.src, param);
-
-				// 全尺寸
-				Polaris.util.onResize(function(w, h) {
-					var elW = slide.el.width();
-					var elH = slide.el.height();
-
-					var imgW = elW;
-					var imgH = elW * 720 / 1280;
-
-					if (imgH < elH) {
-						imgH = elH;
-						imgW = elH / 720 * 1280;
-					}
-
-					var offsetX = (elW - imgW) / 2;
-					var offsetY = (elH - imgH) / 2;
-
-					slide.images.forEach(function(img) {
-						img.css({width:imgW, height:imgH, top:offsetY, left:offsetX});
-					});
-				});
-
-				slide.seek(0);
-				slide.pause();
-
-				return slide;
+			movie.skipLoad();
+			
+			// play next video 1000ms before current video's end
+			movie.beforeEnd(1000, function() {
+				changeMovie(param.next);
 			});
 
-			$('html').addClass('no-video');
-		}
+			// video end
+			movie.onEnded(function() {
+				movie.seek(0);
+			});
+
+			return movie;
+		});
 
 		function changeCursor(index) {
-			$('.thumb_list_01 li').removeClass('current').eq(index).addClass('current');
-			$('.thumb_list_02 li').removeClass('current').eq(index).addClass('current');
+			$('.thumb_list li').removeClass('current').eq(index).addClass('current');
 		}
 
 		function changeMovie(index, head) {
@@ -135,10 +64,6 @@
 
 			var titles = $('.movie_title li');
 
-			// 从头开始播放
-			if (head) movies[index].seek(0);
-
-			// 开始播放下一个视频
 			movies[index].play();
 
 			if (current !== -1) {
@@ -146,12 +71,12 @@
 
 				movies[index].el.stop(true).transit({opacity:1}, 1, 'linear');
 
-				// 播放中的视频
+				// current playing video
 				movies[current].el.css({zIndex:1}).stop(true).transit({opacity:0}, 1000, 'oX2', function() {
 					movies[current].el.css({zIndex:''});
 					movies[current].pause();
 
-					// 下一个标题
+					// next video title
 					titles.eq(index).stop().css({display:'block'}).animate({opacity:1}, 1000, 'iX2');
 
 					// 
@@ -161,11 +86,12 @@
 					animated = false;
 				});
 
-				// 删除播放中的标题
+				// clear current video title
 				titles.eq(current).stop().animate({opacity:0}, 800, 'oX2', function() {
 					$(this).clearStyle();
 				});
-			} else {
+			} 
+			else {
 				current = index;
 
 				movies[index].el.transit({opacity:1}, 1200, 'iX2', function() {
@@ -187,7 +113,7 @@
 		loader.start().then(function() {		
 
 			setTimeout(function() {
-				$('.thumb_list_02').transit({opacity:1}, 1000, 'iX2');
+				$('.thumb_list').transit({opacity:1}, 1000, 'iX2');
 			}, 1000);
 
 			changeMovie(0);
