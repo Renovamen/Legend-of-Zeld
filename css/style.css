@@ -541,7 +541,8 @@ footer .container .row .logo-switch a {
     background-position: center center;
     opacity: .8;
     -webkit-transition: opacity .5s;
-    transition: opacity .5s
+    transition: opacity .5s;
+    background-image: url(../img/logo/logo-switch.jpg)
 }
 
 @media (min-width:640px) {
@@ -557,54 +558,29 @@ footer .container .row .logo-switch a:hover {
     opacity: 1
 }
 
-footer .container .row.legal {
-    text-align: center;
-    margin-bottom: 8px
-}
-
-footer .container .row.legal a {
-    display: block;
-    font-size: 20px;
-    font-family: Candara, sans-serif;
-    line-height: 36px;
-    color: #fff;
-    opacity: .5;
-    margin-right: 0;
-    -webkit-transition: opacity .3s;
-    transition: opacity .3s
-}
-
-@media (min-width:640px) {
-    footer .container .row.legal a {
-        display: inline-block;
-        font-size: 14px;
-        line-height: 24px;
-        margin-right: 40px
-    }
-}
-
-footer .container .row.legal a:last-of-type {
-    margin-right: 0
-}
-
-footer .container .row.legal a:hover {
-    opacity: 1
-}
-
 footer .container .row.copyright {
     text-align: center;
+}
+
+footer .container .row.copyright p,
+footer .container .row.copyright a {
     font-size: 20px;
     font-family: Candara, sans-serif;
     color: #fff;
     opacity: .3
 }
 
-body footer .logo-switch a {
-    background-image: url(../img/logo/logo-switch.jpg)
+footer .container .row.copyright p {
+    margin-bottom: -20px;
 }
 
-body.blind-forest footer .logo-switch a {
-    background-image: url(../img/ratingsymbol_e.png)
+footer .container .row.copyright a {
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+}
+
+footer .container .row.copyright a:hover {
+    opacity: .5;
 }
 
 section.parallaxed {

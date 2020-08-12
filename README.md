@@ -6,7 +6,9 @@ A webpage of *Legend of Zelda: Breath of the Wild*. Inspired by [Ori and the Bli
 
 ## Have a Look
 
-http://zelda.renovamen.ink
+https://zelda.renovamen.ink
+
+The website is hosted on [Github Pages](https://pages.github.com/) and [Coding Pages](https://coding.net/).
 
 &nbsp;
 
@@ -19,3 +21,9 @@ http://zelda.renovamen.ink
 ![img](docs/zelda-3.jpg)
 
 ![img](docs/zelda-4.jpg)
+
+&nbsp;
+
+## Other Contributor
+
+- Jialu Yu
